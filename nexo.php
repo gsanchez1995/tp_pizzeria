@@ -19,17 +19,23 @@ switch ($_POST['queHacer']) {
 	case 'RecuperarClave':
 		include 'php/recuperacion.php';
 		break;
-	case 'MiPerfil':
-		include 'partes/formPerfil.php';
-		break;
-	case 'CambiarNombreDeUsuario':
-		include 'php/cambiarNombreDeUsuario.php';
-		break;
 	case 'Grilla':
 		include 'partes/formGrilla.php';
 		break;
+	case 'TraerParaModificar':
+		include 'php/traerParaModificar.php';
+		break;
+	case 'FinalizarModificacion':
+		include 'partes/formModificar.php';
+		break;
+	case 'ModificarUsuario':
+		include 'php/modificarUsuario.php';
+		break;
 	case 'BorrarUsuario':
 		include 'php/borrarUsuario.php';
+		break;
+	case 'RegistrarProducto':
+		include 'partes/formRegistrarProducto.php';
 		break;
 	default:
 		# code...

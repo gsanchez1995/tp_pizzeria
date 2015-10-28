@@ -30,22 +30,6 @@ function Ingreso()
 	});
 }
 
-function MiPerfil()
-{
-	var funcionAjax = $.ajax({
-		url: 'nexo.php',
-		type: 'post',
-		data: {
-			queHacer: 'MiPerfil'
-		}
-	});
-
-	funcionAjax.done(function(retorno)
-	{
-		$('#principal').html(retorno);
-	});
-}
-
 function Grilla()
 {
 	var funcionAjax = $.ajax({
@@ -69,6 +53,22 @@ function Recuperacion()
 		type: 'post',
 		data: {
 			queHacer: 'Recuperacion'
+		}
+	});
+
+	funcionAjax.done(function(retorno)
+	{
+		$('#principal').html(retorno);
+	});
+}
+
+function RegistrarProducto()
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'RegistrarProducto'
 		}
 	});
 

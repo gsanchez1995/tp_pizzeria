@@ -1,22 +1,20 @@
 <?php 
 require_once "AccesoDatos.php";
 
-class Usuario
+class Producto
 {
     public $id;
     public $nombre;
-    public $mail;
-    public $clave;
-    public $tipo;
+    public $precio;
+    public $foto;
 
-    public static function InsertarUsuario($nombre,$mail,$clave,$tipo)
+    public static function InsertarProducto($nombre,$precio,$foto)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("INSERT INTO usuarios(nombre,mail,clave,tipo) VALUES (:paramNombre,:paramMail,:paramClave,:paramTipo)");
+        $consulta = $objetoAccesoDatos->RetornarConsulta("INSERT INTO productos(nombre,precio,foto) VALUES (:paramNombre,:paramPrecio,:paramFoto)");
         $consulta->bindValue(":paramNombre",$nombre,PDO::PARAM_STR);
-        $consulta->bindValue(":paramMail",$mail,PDO::PARAM_STR);
-        $consulta->bindValue(":paramClave",$clave,PDO::PARAM_STR);
-        $consulta->bindValue(":paramTipo",$tipo,PDO::PARAM_STR);
+        $consulta->bindValue(":paramPrecio",$precio,PDO::PARAM_INT);
+        $consulta->bindValue(":paramFoto",$foto,PDO::PARAM_STR);
         $consulta->execute();
     }
 
@@ -27,7 +25,6 @@ class Usuario
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_CLASS,"Usuario");
     }
-
     public static function TraerUsuarioPorMailYClave($mail,$clave)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
@@ -37,31 +34,19 @@ class Usuario
         $consulta->execute();
         return $consulta->fetchObject("Usuario");
     }
-
-    public static function TraerUsuarioPorId($id)
+    public static function ModificarUsuario($nombre,$mail,$clave)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM usuarios WHERE id=:paramId");
-        $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
-        $consulta->execute();
-        return $consulta->fetchObject("Usuario");
-    }
-
-    public static function ModificarUsuario($id,$nombre,$mail,$clave)
-    {
-        $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("UPDATE usuarios SET nombre=:paramNombre,mail=:paramMail,clave=:paramClave WHERE id=:paramId");
+        $consulta = $objetoAccesoDatos->RetornarConsulta("CALL ModificarUsuario(:paramNombre,:paramMail,:paramClave)");
         $consulta->bindValue(":paramNombre",$nombre,PDO::PARAM_STR);
         $consulta->bindValue(":paramMail",$mail,PDO::PARAM_STR);
         $consulta->bindValue(":paramClave",$clave,PDO::PARAM_STR);
-        $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
         $consulta->execute();
     }
-
     public static function BorrarUsuario($id)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("DELETE FROM usuarios WHERE id=:paramId");
+        $consulta = $objetoAccesoDatos->RetornarConsulta("CALL BorrarUsuario(:paramId)");
         $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
         $consulta->execute();
     }
