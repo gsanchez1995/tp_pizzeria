@@ -30,13 +30,13 @@
 
 			if($miUsuario->tipo == 'admin')
 			{
-				echo "<td><input type='button' value='Modificar' onclick='TraerParaModificar(".$item->id.")'/></td>";
-				echo "<td><input type='button' value='Borrar' onclick='Borrar(".$item->id.")'/></td>";
+				echo "<td><input type='button' value='Modificar' onclick='TraerParaModificarUsuario(".$item->id.")'/></td>";
+				echo "<td><input type='button' value='Borrar' onclick='BorrarUsuario(".$item->id.")'/></td>";
 			}else{
 				if($miUsuario->id == $item->id)
 				{
-					echo "<td><input type='button' value='Modificar' onclick='TraerParaModificar(".$item->id.")'/></td>";
-					echo "<td><input type='button' value='Borrar' onclick='Borrar(".$item->id.")'/></td>";
+					echo "<td><input type='button' value='Modificar' onclick='TraerParaModificarUsuario(".$item->id.")'/></td>";
+					echo "<td><input type='button' value='Borrar' onclick='BorrarUsuario(".$item->id.")'/></td>";
 				}else{
 					echo "<td></td>";
 					echo "<td></td>";

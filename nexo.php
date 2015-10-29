@@ -22,8 +22,8 @@ switch ($_POST['queHacer']) {
 	case 'Grilla':
 		include 'partes/formGrilla.php';
 		break;
-	case 'TraerParaModificar':
-		include 'php/traerParaModificar.php';
+	case 'TraerParaModificarUsuario':
+		include 'php/traerParaModificarUsuario.php';
 		break;
 	case 'FinalizarModificacion':
 		include 'partes/formModificar.php';
@@ -37,6 +37,20 @@ switch ($_POST['queHacer']) {
 	case 'RegistrarProducto':
 		include 'partes/formRegistrarProducto.php';
 		break;
+	case 'GrillaProductos':
+		include 'partes/formGrillaProductos.php';
+		break;
+	case 'TraerParaModificarProducto':
+		include 'php/traerParaModificarProducto.php';
+		break;
+	case 'FinalizarModificacionProducto':
+		include 'partes/formModificarProducto.php';
+		break;
+	case 'BorrarProducto':
+		include 'php/borrarProducto.php';
+		break;
+	case 'RegistrarVenta':
+		include 'partes/formRegistrarVenta.php';
 	default:
 		# code...
 		break;

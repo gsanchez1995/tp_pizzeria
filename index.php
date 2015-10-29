@@ -37,14 +37,12 @@
 
 		<nav>
 			<ul id="main-nav" class="clearfix">
-				<li><a onclick="DarDeAlta()" class="btn">Alta de usuarios</a></li>
-				<li><a onclick="Ingreso()" class="btn">Ingreso</a></li>
-				<li><a onclick="Grilla()" class="btn">Listado de usuarios</a> </li>
-				<li><a onclick="RegistrarProducto()" class="btn">Registrar producto</a> </li>
-				<li><a onclick="RegistrarVenta()" class="btn">Registrar venta</a> </li>
-				<li><a onclick="" class="btn">----</a> </li>
-				<li><a onclick="" class="btn">----</a> </li>
-				<li><a onclick="" class="btn">----</a> </li>
+				<li><a onclick="IrHacia('Ingreso')" class="btn">Ingreso</a></li>
+				<li><a onclick="IrHacia('DarDeAlta')" class="btn">Alta de usuarios</a></li>
+				<li><a onclick="IrHacia('Grilla')" class="btn">Listado de usuarios</a> </li>
+				<li><a onclick="IrHacia('RegistrarProducto')" class="btn">Registrar producto</a> </li>
+				<li><a onclick="IrHacia('GrillaProductos')" class="btn">ListadoDeProductos</a> </li>
+				<li><a onclick="IrHacia('RegistrarVenta')" class="btn">Registrar venta</a> </li>
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>

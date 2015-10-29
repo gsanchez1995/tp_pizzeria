@@ -3,7 +3,7 @@
 if(isset($_COOKIE['cookieMail']) && isset($_COOKIE['cookieClave']))
 {
 
-	echo "<form method='post' id='form' name='form' onsubmit='Modificar();return false;'>
+	echo "<form method='post' id='form' name='form' onsubmit='ModificarUsuario();return false;'>
 		  Cambiar Nombre de Usuario: <input type='text' id='txtNombre' name='txtNombre'/></br>
 		  Cambiar Mail: <input type='text' id='txtMail' name='txtMail'/></br>
 		  Cambiar clave: <input type='password' id='txtClave' name='txtClave'/></br>

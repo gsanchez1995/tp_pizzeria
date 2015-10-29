@@ -6,7 +6,7 @@ echo "<form method='post' id='form' name='form' onsubmit='VerificarIngreso();ret
 	  Clave: <input type='password' id='txtClave' name='txtClave'/></br>
 	  <button type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 	  </form></br>
-	  Te olvidaste la clave papu? <button onclick='Recuperacion();'>Recuperala</button>";
+	  Te olvidaste la clave papu? <button onclick='IrHacia('Recuperacion');'>Recuperala</button>";
 
 
 ?>

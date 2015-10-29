@@ -18,35 +18,35 @@ class Producto
         $consulta->execute();
     }
 
-    public static function TraerTodosLosUsuarios()
+    public static function TraerTodosLosProductos()
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM usuarios");
+        $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM productos");
         $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_CLASS,"Usuario");
+        return $consulta->fetchAll(PDO::FETCH_CLASS,"Producto");
     }
-    public static function TraerUsuarioPorMailYClave($mail,$clave)
+    public static function TraerProductoPorId($id)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM usuarios WHERE mail=:paramMail AND clave=:paramClave");
-        $consulta->bindValue(":paramMail",$mail,PDO::PARAM_STR);
-        $consulta->bindValue(":paramClave",$clave,PDO::PARAM_STR);
+        $consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM productos WHERE id=:paramId");
+        $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
         $consulta->execute();
-        return $consulta->fetchObject("Usuario");
+        return $consulta->fetchObject("Producto");
     }
-    public static function ModificarUsuario($nombre,$mail,$clave)
+    public static function ModificarProducto($nombre,$precio,$foto,$id)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("CALL ModificarUsuario(:paramNombre,:paramMail,:paramClave)");
+        $consulta = $objetoAccesoDatos->RetornarConsulta("UPDATE productos SET nombre=:paramNombre,precio=:paramPrecio,foto=:paramFoto WHERE id=:paramId");
         $consulta->bindValue(":paramNombre",$nombre,PDO::PARAM_STR);
-        $consulta->bindValue(":paramMail",$mail,PDO::PARAM_STR);
-        $consulta->bindValue(":paramClave",$clave,PDO::PARAM_STR);
+        $consulta->bindValue(":paramPrecio",$precio,PDO::PARAM_INT);
+        $consulta->bindValue(":paramFoto",$foto,PDO::PARAM_STR);
+        $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
         $consulta->execute();
     }
-    public static function BorrarUsuario($id)
+    public static function BorrarProducto($id)
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
-        $consulta = $objetoAccesoDatos->RetornarConsulta("CALL BorrarUsuario(:paramId)");
+        $consulta = $objetoAccesoDatos->RetornarConsulta("DELETE FROM productos WHERE id=:paramId");
         $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
         $consulta->execute();
     }

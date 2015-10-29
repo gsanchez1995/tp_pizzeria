@@ -18,15 +18,15 @@ function GuardarAlta()
 	});
 }
 
-function TraerParaModificar(EstaEsLaId)
+function TraerParaModificarUsuario(EstaEsLaId)
 {
-	FinalizarModificacion();
+	FinalizarModificacionUsuario();
 
 	var funcionAjax = $.ajax({
 			url: 'nexo.php',
 			type: 'post',
 			data: {
-				queHacer: 'TraerParaModificar',
+				queHacer: 'TraerParaModificarUsuario',
 				id: EstaEsLaId
 			}
 		});
@@ -41,7 +41,7 @@ function TraerParaModificar(EstaEsLaId)
 		});
 }
 
-function FinalizarModificacion()
+function FinalizarModificacionUsuario()
 {
 	var funcionAjax = $.ajax({
 			url: 'nexo.php',
@@ -57,7 +57,7 @@ function FinalizarModificacion()
 		});
 }
 
-function Modificar()
+function ModificarUsuario()
 {
 	var funcionAjax = $.ajax({
 			url: 'nexo.php',
@@ -77,7 +77,7 @@ function Modificar()
 		});
 }
 
-function Borrar(EstaEsLaId)
+function BorrarUsuario(EstaEsLaId)
 {
 	var funcionAjax = $.ajax({
 			url: 'nexo.php',
@@ -110,7 +110,58 @@ function RegistrarProducto()
 		});
 }
 
-function FinalizarRegistroDeProducto()
+function TraerParaModificarProducto(EstaEsLaId)
 {
-	alert("JAJAAJAJ");
+	FinalizarModificacionProducto();
+
+	var funcionAjax = $.ajax({
+			url: 'nexo.php',
+			type: 'post',
+			data: {
+				queHacer: 'TraerParaModificarProducto',
+				id: EstaEsLaId
+			}
+		});
+
+		funcionAjax.done(function(retorno)
+		{
+			var unProducto = JSON.parse(retorno);
+			$("#txtNombre").val(unProducto.nombre);
+			$('#txtPrecio').val(unProducto.precio);
+			$('#laImagen').attr('src','imagenes/'+unProducto.foto);
+			$('#hiddenId').val(unProducto.id);
+		});
+}
+
+function FinalizarModificacionProducto()
+{
+	var funcionAjax = $.ajax({
+			url: 'nexo.php',
+			type: 'post',
+			data: {
+				queHacer: 'FinalizarModificacionProducto'
+			}
+		});
+
+		funcionAjax.done(function(retorno)
+		{
+			$('#principal').html(retorno);
+		});
+}
+
+function BorrarProducto(EstaEsLaId)
+{
+	var funcionAjax = $.ajax({
+			url: 'nexo.php',
+			type: 'post',
+			data: {
+				queHacer: 'BorrarProducto',
+				id: EstaEsLaId
+			}
+		});
+
+		funcionAjax.done(function(retorno)
+		{
+			$('#principal').html(retorno);
+		});
 }
