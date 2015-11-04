@@ -14,6 +14,14 @@ foreach ($ArrayDeUsuarios as $item)
 		$_SESSION['loginMail']=$_POST['mail'];
 		$_SESSION['loginTiempo']=date("Y-M-d H:i:s");
 
+		if($_POST['recordar']=="true")
+		{
+			setcookie("cookieMail",$_POST['mail']);
+		}else
+		{
+			setcookie("cookieMail",null,-1);
+		}
+
 		$bandera=1;
 		break;
 	}
@@ -24,6 +32,6 @@ if($bandera==0)
 	echo "no existe usuario con ese mail y clave";
 }else
 {
-	echo "Logeado como: ".$_SESSION['loginMail'];
+	echo $_SESSION['loginMail'];
 }
 ?>

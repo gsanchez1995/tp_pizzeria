@@ -13,9 +13,9 @@ if(Validadora::ValidarSesionIniciada())
 		{
 			echo "<form method='post' id='form' name='form' action='registroDeProducto.php' enctype='multipart/form-data'>
 			  Registro de productos</br></br>
-			  Ingrese Nombre: <input type='text' id='txtNombre' name='txtNombre'/></br>
-			  Ingrese Precio: <input type='text' id='txtPrecio' name='txtPrecio'/></br>
-			  Ingrese Foto: <input type='file' id='fileFoto' name='fileFoto'/></br>
+			  Ingrese Nombre: <input type='text' id='txtNombre' name='txtNombre' required/></br>
+			  Ingrese Precio: <input type='number' min='1' max='999' id='txtPrecio' name='txtPrecio' required/></br>
+			  Ingrese Foto: <input type='file' id='fileFoto' name='fileFoto' required/></br>
 			  <button type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 			  </form>";
 		}else{

@@ -41,8 +41,9 @@
 				<li><a onclick="IrHacia('DarDeAlta')" class="btn">Alta de usuarios</a></li>
 				<li><a onclick="IrHacia('Grilla')" class="btn">Listado de usuarios</a> </li>
 				<li><a onclick="IrHacia('RegistrarProducto')" class="btn">Registrar producto</a> </li>
-				<li><a onclick="IrHacia('GrillaProductos')" class="btn">ListadoDeProductos</a> </li>
+				<li><a onclick="IrHacia('GrillaProductos')" class="btn">Listado de Productos</a> </li>
 				<li><a onclick="IrHacia('Venta')" class="btn">Registrar venta</a> </li>
+				<li><a onclick="IrHacia('GrillaVentas')" class="btn">Listado de Ventas</a> </li>
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
@@ -85,9 +86,16 @@
 		<!-- /.widget -->
 
 		<section class="widget clearfix" >
-			<h4 class="widgettitle">Cookie de login</h4>
+			<h4 class="widgettitle">Logeado como:</h4>
 				<div id="Contador">
 				<!--contenido dinamico cargado por ajax-->
+				<?php 
+				session_start();
+				if(isset($_SESSION['loginMail']))
+				{
+					echo $_SESSION['loginMail'];
+				}
+				?>
 				</div>
 			
 		</section>

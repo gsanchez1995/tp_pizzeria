@@ -5,8 +5,9 @@ function VerificarIngreso()
 		type: 'post',
 		data: {
 			queHacer: 'VerificarIngreso',
-			mail: document.getElementById('txtMail').value,
-			clave: document.getElementById('txtClave').value
+			mail: $('#txtMail').val(),
+			clave: $('#txtClave').val(),
+			recordar: $("#checkRecordar").is(':checked')
 		}
 	});
 
@@ -19,6 +20,7 @@ function VerificarIngreso()
 		}else
 		{
 			$('#principal').html("Usuario Logeado!");
+			$('#Contador').html("");
 			$('#Contador').html(retorno);
 		}
 	});
@@ -37,6 +39,7 @@ function Deslogear()
 	funcionAjax.done(function(retorno)
 	{
 			$('#principal').html(retorno);
+			$('#Contador').html("");
 	});
 }
 

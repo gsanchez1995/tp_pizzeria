@@ -4,10 +4,18 @@ require_once "clases/claseValidadora.php";
 
 if(!Validadora::ValidarSesionIniciada())
 {
+	if(isset($_COOKIE['cookieMail']))
+	{
+		$cookiemail = $_COOKIE['cookieMail'];
+	}else{
+		$cookiemail = "";
+	}
+
 	echo "<form method='post' id='form' name='form' onsubmit='VerificarIngreso();return false;'>
 		  Ingreso:</br>
-		  Mail: <input type='text' id='txtMail' name='txtMail'/></br>
-		  Clave: <input type='password' id='txtClave' name='txtClave'/></br>
+		  Mail: <input type='text' id='txtMail' name='txtMail' value='".$cookiemail."' required/></br>
+		  Clave: <input type='password' id='txtClave' name='txtClave' required/></br>
+		  Recordarme: <input type='checkbox' id='checkRecordar' name='checkRecordar'/></br>
 		  <button type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 		  </form></br>
 		  Te olvidaste la clave papu? <button onclick='IrHacia('Recuperacion');'>Recuperala</button>";

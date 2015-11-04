@@ -4,7 +4,7 @@ require_once 'clases/claseProducto.php';
 
 if(!isset($_FILES["fileFoto"]))
 	{
-		// no se cargo una imagen
+		
 	}
 	else
 	{

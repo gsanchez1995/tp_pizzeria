@@ -33,7 +33,7 @@ echo "</br></br>Provincia: <select name='selectProvincia' id='selectProvincia' o
 		  <option value='Quilmes'>Quilmes</option>
 		  <option value='Lanus' default>Lanus</option>
 		</select></br>
-	Ingrese Direccíón: <input type='text' id='txtDireccion' name='txtDireccion'/></br>
+	Ingrese Direccíón: <input type='text' id='txtDireccion' name='txtDireccion' required/></br>
 	Comprador: <input type='radio' name='radioTipo' id='radioTipo1' value='Particular' checked>Particular
 	<input type='radio' name='radioTipo' id='radioTipo2' value='Empresa'>Empresa</br>
 	Promoción: <input type='checkbox' name='checkPromo' id='checkPromo'><br>
