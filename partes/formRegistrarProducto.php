@@ -1,11 +1,13 @@
 <?php 
+session_start();
 
 require_once "./clases/claseUsuario.php";
-
-if(isset($_COOKIE['cookieMail']) && isset($_COOKIE['cookieClave']))
+require_once "./clases/claseValidadora.php";
+	
+if(Validadora::ValidarSesionIniciada())
 	{
 		$arrayDeUsuarios = Usuario::TraerTodosLosUsuarios();
-		$miUsuario = Usuario::TraerUsuarioPorMailYClave($_COOKIE['cookieMail'],$_COOKIE['cookieClave']);
+		$miUsuario = Usuario::TraerUsuarioPorMail($_SESSION['loginMail']);
 
 		if($miUsuario->tipo == "admin")
 		{

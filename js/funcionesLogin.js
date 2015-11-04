@@ -24,6 +24,22 @@ function VerificarIngreso()
 	});
 }
 
+function Deslogear()
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'Deslogear'
+		}
+	});
+
+	funcionAjax.done(function(retorno)
+	{
+			$('#principal').html(retorno);
+	});
+}
+
 function RecuperarClave()
 {
 	var funcionAjax = $.ajax({

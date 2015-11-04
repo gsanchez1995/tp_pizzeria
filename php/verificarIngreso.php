@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 require_once "./clases/claseUsuario.php";
 
@@ -10,8 +11,8 @@ foreach ($ArrayDeUsuarios as $item)
 {
 	if($_POST['mail']==$item->mail && md5($_POST['clave'])==$item->clave)
 	{
-		setcookie('cookieMail',$_POST['mail']);
-		setcookie('cookieClave',md5($_POST['clave']));
+		$_SESSION['loginMail']=$_POST['mail'];
+		$_SESSION['loginTiempo']=date("Y-M-d H:i:s");
 
 		$bandera=1;
 		break;
@@ -21,9 +22,8 @@ foreach ($ArrayDeUsuarios as $item)
 if($bandera==0)
 {
 	echo "no existe usuario con ese mail y clave";
-	unset($_COOKIE);
 }else
 {
-	echo "No sé porque motivo logea con la cookie anterior y no con la actual.</br></br>Logeado como: ".$_COOKIE['cookieMail'];
+	echo "Logeado como: ".$_SESSION['loginMail'];
 }
 ?>

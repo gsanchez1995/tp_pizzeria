@@ -42,7 +42,7 @@
 				<li><a onclick="IrHacia('Grilla')" class="btn">Listado de usuarios</a> </li>
 				<li><a onclick="IrHacia('RegistrarProducto')" class="btn">Registrar producto</a> </li>
 				<li><a onclick="IrHacia('GrillaProductos')" class="btn">ListadoDeProductos</a> </li>
-				<li><a onclick="IrHacia('RegistrarVenta')" class="btn">Registrar venta</a> </li>
+				<li><a onclick="IrHacia('Venta')" class="btn">Registrar venta</a> </li>
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>

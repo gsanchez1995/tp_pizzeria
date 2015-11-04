@@ -13,6 +13,9 @@ switch ($_POST['queHacer']) {
 	case 'VerificarIngreso':
 		include 'php/verificarIngreso.php';
 		break;
+	case 'Deslogear':
+		include 'php/deslogear.php';
+		break;
 	case 'Recuperacion':
 		include 'partes/formRecuperacion.php';
 		break;
@@ -49,8 +52,12 @@ switch ($_POST['queHacer']) {
 	case 'BorrarProducto':
 		include 'php/borrarProducto.php';
 		break;
-	case 'RegistrarVenta':
+	case 'Venta':
 		include 'partes/formRegistrarVenta.php';
+		break;
+	case 'RegistrarVenta':
+		include 'php/registrarVenta.php';
+		break;
 	default:
 		# code...
 		break;

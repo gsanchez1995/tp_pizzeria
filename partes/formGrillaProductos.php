@@ -1,11 +1,14 @@
 <?php 
+	session_start();
+
 	require_once "./clases/claseProducto.php";
 	require_once "./clases/claseUsuario.php";
+	require_once "./clases/claseValidadora.php";
 	
-	if(isset($_COOKIE['cookieMail']) && isset($_COOKIE['cookieClave']))
+	if(Validadora::ValidarSesionIniciada())
 	{
 		$arrayDeProductos = Producto::TraerTodosLosProductos();
-		$miUsuario = Usuario::TraerUsuarioPorMailYClave($_COOKIE['cookieMail'],$_COOKIE['cookieClave']);
+		$miUsuario = Usuario::TraerUsuarioPorMail($_SESSION['loginMail']);
 
 
 		echo "<table border='1'>
