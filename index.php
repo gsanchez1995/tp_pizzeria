@@ -74,6 +74,8 @@
 		</article>
 		<!-- /.post -->
 
+		
+
 	</div>
 	<!-- /#content --> 
 	
@@ -100,6 +102,24 @@
 			
 		</section>
 		<!-- /.widget -->
+
+		<section class="widget clearfix" >
+			<div id="RSSs">
+					<?php 
+
+					$rss = simplexml_load_file('http://www.clarin.com/rss/lo-ultimo/');
+
+					echo "<a href='".$rss->channel->link."'><img src='".$rss->channel->image->url."'/></a></br></br>";
+					
+					foreach ($rss->channel->item as $item) {
+						echo "<a href='".$item->link."'>$item->title</a></br>";
+						echo $item->description."</br></br>";
+					}
+					?>
+			</div>
+		</section>
+
+		
 						
 	</aside>
 	<!-- /#sidebar -->

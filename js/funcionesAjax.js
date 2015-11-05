@@ -13,3 +13,19 @@ function IrHacia(DondeVoy)
 		$('#principal').html(retorno);
 	});
 }
+
+function Recuperacion()
+{
+	var funcionAjax = $.ajax({
+		url: 'nexo.php',
+		type: 'post',
+		data: {
+			queHacer: 'Recuperacion'
+		}
+	});
+
+	funcionAjax.done(function(retorno)
+	{
+		$('#principal').html(retorno);
+	});
+}
