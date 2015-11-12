@@ -70,5 +70,14 @@ class Usuario
         $consulta->bindValue(":paramId",$id,PDO::PARAM_INT);
         $consulta->execute();
     }
+
+    public static function InsertarReseteo($mail,$token)
+    {
+        $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
+        $consulta = $objetoAccesoDatos->RetornarConsulta("CALL InsertarReseteo(:paramMail,:paramToken)");
+        $consulta->bindValue(":paramMail",$mail,PDO::PARAM_STR);
+        $consulta->bindValue(":paramToken",$token,PDO::PARAM_STR);
+        $consulta->execute();
+    }
 }
 ?>

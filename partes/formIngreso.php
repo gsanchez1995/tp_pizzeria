@@ -11,14 +11,12 @@ if(!Validadora::ValidarSesionIniciada())
 		$cookiemail = "";
 	}
 
-
-
-	echo "<form method='post' id='form' name='form' onsubmit='VerificarIngreso();return false;'>
-		  Ingreso:</br>
-		  Mail: <input type='text' id='txtMail' name='txtMail' value='".$cookiemail."' required/></br>
-		  Clave: <input type='password' id='txtClave' name='txtClave' required/></br>
+	echo "<form class='form-ingreso' method='post' id='form' name='form' onsubmit='VerificarIngreso();return false;'>
+		  <h2 class='form-ingreso-heading'>Ingreso:</h2></br>
+		  Mail: <input class='form-control' type='text' id='txtMail' name='txtMail' value='".$cookiemail."' required/></br>
+		  Clave: <input class='form-control' type='password' id='txtClave' name='txtClave' required/></br>
 		  Recordarme: <input type='checkbox' id='checkRecordar' name='checkRecordar'/></br>
-		  <button type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
+		  <button class='btn btn-lg btn-primary btn-block' type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 		  </form></br>
 		  Te olvidaste la clave? <input type='button' onclick='Recuperacion();' value='Recuperala'/>";
 }else{

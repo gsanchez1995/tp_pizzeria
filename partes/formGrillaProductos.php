@@ -11,14 +11,17 @@
 		$miUsuario = Usuario::TraerUsuarioPorMail($_SESSION['loginMail']);
 
 
-		echo "<table border='1'>
-			<tr>
-				<td>Nombre</td>
-				<td>Precio</td>
-				<td>Foto</td>
-				<td>Modificar</td>
-				<td>Borrar</td>
-			</tr>";
+		echo "<table class='table' style='background-color: beige;' id='datatable'>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>Foto</th>
+					<th>Modificar</th>
+					<th>Borrar</th>
+				</tr>
+			</thead>
+			<tbody>";
 		foreach ($arrayDeProductos as $item) 
 		{
 			echo "<tr>
@@ -28,12 +31,13 @@
 
 			if($miUsuario->tipo == 'admin')
 			{
-				echo "<td><input type='button' value='Modificar' onclick='TraerParaModificarProducto(".$item->id.")'/></td>";
-				echo "<td><input type='button' value='Borrar' onclick='BorrarProducto(".$item->id.")'/></td>";
+				echo "<td><a onclick='TraerParaModificarProducto(".$item->id.")' class='btn btn-warning'><span class='glyphicon glyphicon-pencil'>&nbsp;</span>Modificar</a></td>";
+				echo "<td><a onclick='BorrarProducto(".$item->id.")' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>&nbsp;</span>Borrar</a></td>";
 			}
 		  	echo "</tr>";
 		}
-		echo "</table>";
+		echo "</tbody></table>";
+		echo "<input type='button' onclick='Estadistica()' value='Estadistica'/>";
 	}else{
 		echo "Debe logearse primero!";
 	}

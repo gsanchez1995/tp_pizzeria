@@ -36,7 +36,6 @@ function TraerParaModificarUsuario(EstaEsLaId)
 			var unUsuario = JSON.parse(retorno);
 			$("#txtNombre").val(unUsuario.nombre);
 			$('#txtMail').val(unUsuario.mail);
-			$('#txtClave').val(unUsuario.clave);
 			$('#hiddenId').val(unUsuario.id);
 		});
 }

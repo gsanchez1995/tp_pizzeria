@@ -21,10 +21,16 @@
 <script type="text/javascript" src="js/funcionesAjax.js"></script>
 <script type="text/javascript" src="js/funcionesLogin.js"></script>
 <script type="text/javascript" src="js/funcionesABM.js"></script>
-
+<script type="text/javascript" src="js/funcionesMapa.js"></script>
+<script type="text/javascript" src="js/geolocalizacionCommon.js"></script>
+<script type="text/javascript" src="js/moduloGeolocalizacion.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+<script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 
-<body>
+<body background="body-background.png">
 
 <div id="pagewrap">
 
@@ -91,7 +97,7 @@
 			<h4 class="widgettitle">Logeado como:</h4>
 				<div id="Contador">
 				<!--contenido dinamico cargado por ajax-->
-				<?php 
+				<?php
 				session_start();
 				if(isset($_SESSION['loginMail']))
 				{
@@ -106,7 +112,6 @@
 		<section class="widget clearfix" >
 			<div id="RSSs">
 					<?php 
-
 					$rss = simplexml_load_file('http://www.clarin.com/rss/lo-ultimo/');
 
 					echo "<a href='".$rss->channel->link."'><img src='".$rss->channel->image->url."'/></a></br></br>";

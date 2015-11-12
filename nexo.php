@@ -61,6 +61,12 @@ switch ($_POST['queHacer']) {
 	case 'GrillaVentas':
 		include 'partes/formGrillaVentas.php';
 		break;
+	case 'VerEnMapa':
+        include 'partes/formMapa.php';
+		break;
+	case 'Estadistica':
+		include 'partes/formEstadistica.php';
+		break;
 	default:
 		# code...
 		break;

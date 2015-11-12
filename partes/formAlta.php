@@ -16,12 +16,12 @@ if(Validadora::ValidarSesionIniciada())
 	}
 }
 
-echo "<form method='post' id='form' name='form' onsubmit='GuardarAlta();return false;'>
-	  Nombre: <input type='text' id='txtNombre' name='txtNombre' required/></br>
-	  Mail: <input type='email' id='txtMail' name='txtMail' required/></br>
-	  Clave: <input type='password' id='txtClave' name='txtClave' required/></br>
+echo "<form class='form-ingreso' method='post' id='form' name='form' onsubmit='GuardarAlta();return false;'>
+	  Nombre: <input class='form-control' type='text' id='txtNombre' name='txtNombre' required/></br>
+	  Mail: <input class='form-control' type='email' id='txtMail' name='txtMail' required/></br>
+	  Clave: <input class='form-control' type='password' id='txtClave' name='txtClave' required/></br>
 	  Tipo:
-	  <select name='selectTipo' id='selectTipo' ";
+	  <select class='form-control' name='selectTipo' id='selectTipo' ";
 
 	  if($bandera == 0)
 	  {
@@ -31,8 +31,8 @@ echo "<form method='post' id='form' name='form' onsubmit='GuardarAlta();return f
 	  echo ">
 	      <option value='admin'>Administrador</option>
 	      <option value='user' selected>Usuario común</option>
-	  </select></br></br>Nota: Solo va a poder modificar el select si está logeado como administrador. O sea, que solo los admins dan de alta admins.</br>
-	  <button type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
+	  </select></br>
+	  <button class='btn btn-lg btn-danger btn-block' type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 	  </form>";
 
 
