@@ -33,7 +33,7 @@ class Venta
     {
         $objetoAccesoDatos = AccesoDatos::dameUnObjetoAcceso();
         $consulta = $objetoAccesoDatos->RetornarConsulta("CALL TraerTodasLasVentas()");
-        //$consulta = $objetoAccesoDatos->RetornarConsulta("SELECT * FROM ventas");
+        //$consulta = $objetoAccesoDatos->RetornarConsulta("SELECT v.id,v.pedido,v.precio,v.provincia,v.localidad,v.direccion,v.tipo,v.promocion,u.nombre as vendedor FROM ventas as v, usuarios as u WHERE v.id_vendedor = u.id");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_CLASS,"Venta");
     }
