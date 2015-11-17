@@ -76,6 +76,25 @@ function ModificarUsuario()
 		});
 }
 
+function ModificarUsuarioPorReseteo()
+{
+	var funcionAjax = $.ajax({
+			url: 'nexo.php',
+			type: 'post',
+			data: {
+				queHacer: 'ModificarUsuarioPorReseteo',
+				id: $('#hiddenId').val(),
+				clave: $('#txtClave').val()
+			}
+		});
+
+		funcionAjax.done(function(retorno)
+		{
+			$('#principal').html(retorno);
+			window.location.href = 'index.php';
+		});
+}
+
 function BorrarUsuario(EstaEsLaId)
 {
 	var funcionAjax = $.ajax({

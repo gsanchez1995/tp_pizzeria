@@ -34,6 +34,9 @@ switch ($_POST['queHacer']) {
 	case 'ModificarUsuario':
 		include 'php/modificarUsuario.php';
 		break;
+	case 'ModificarUsuarioPorReseteo':
+		include 'php/modificarUsuarioPorReseteo.php';
+		break;
 	case 'BorrarUsuario':
 		include 'php/borrarUsuario.php';
 		break;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2015 a las 06:03:35
+-- Tiempo de generación: 17-11-2015 a las 18:25:44
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -73,6 +73,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerTodosLosProductos`()
     READS SQL DATA
 SELECT * FROM productos$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerTodosLosReseteos`()
+    NO SQL
+select * from reseteopassword$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `TraerTodosLosUsuarios`()
     READS SQL DATA
 SELECT * FROM usuarios$$
@@ -98,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `nombre` varchar(100) NOT NULL,
   `precio` int(11) NOT NULL,
   `foto` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -111,18 +115,16 @@ CREATE TABLE IF NOT EXISTS `reseteopassword` (
   `mail` varchar(50) NOT NULL,
   `token` varchar(200) NOT NULL,
   `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reseteopassword`
 --
 
 INSERT INTO `reseteopassword` (`id`, `mail`, `token`, `creado`) VALUES
-(2, '5f40dd42f43b8d272ec0fcd09d616bcc', 'fd003748a9590ba28f3574c68088fa4e', '2015-11-11 17:03:24'),
-(3, 'f77971f6664b18c6b554dcc8610e4d04', 'bc6c8b53f4fe9d657289f776c9067c3d', '2015-11-11 17:17:39'),
-(4, '0137a11cdda5484a72ce54bbab936073', '741f24f3f555514bb0eb1552594a5874', '2015-11-11 17:18:48'),
-(5, 'f77971f6664b18c6b554dcc8610e4d04', 'e6b14a657c0b7da985f13e94c1c8e822', '2015-11-11 17:26:49'),
-(6, '5f40dd42f43b8d272ec0fcd09d616bcc', '4dc41ad93e5652749ab96a3159e5448c', '2015-11-11 17:37:11');
+(24, 'user10@user.com.ar', '491c1d00ce801a2ff9de4fd862faafd1', '2015-11-17 17:16:42'),
+(25, 'admin2@admin.com.ar', 'ab46461f29b2982fe9e0f0f493ba28b4', '2015-11-17 17:20:30'),
+(26, 'user3@user.com.ar', 'a641232129e3b498a29b66a4d231d928', '2015-11-17 17:22:19');
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `mail` varchar(50) NOT NULL,
   `clave` varchar(50) NOT NULL,
   `tipo` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -148,7 +150,7 @@ INSERT INTO `usuarios` (`id`, `nombre`, `mail`, `clave`, `tipo`) VALUES
 (10, 'admin1', 'admin1@admin.com.ar', 'e00cf25ad42683b3df678c61f42c6bda', 'admin'),
 (11, 'admin2', 'admin2@admin.com.ar', 'c84258e9c39059a89ab77d846ddab909', 'admin'),
 (12, 'user1', 'user1@user.com.ar', '24c9e15e52afc47c225b757e7bee1f9d', 'user'),
-(13, 'user10', 'user10@user.com.ar', '990d67a9f94696b1abe2dccf06900322', 'user');
+(13, 'user10', 'user10@user.com.ar', 'ddb2ffcbd5bd0c0bc400c5f14c41b166', 'user');
 
 -- --------------------------------------------------------
 
@@ -213,17 +215,17 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `reseteopassword`
 --
 ALTER TABLE `reseteopassword`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --

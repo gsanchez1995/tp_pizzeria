@@ -1,6 +1,7 @@
 <?php 
 
 require_once "./clases/claseUsuario.php";
+require_once "./clases/claseReseteo.php";
 
 $ArrayDeUsuarios = Usuario::TraerTodosLosUsuarios();
 
@@ -11,11 +12,11 @@ foreach ($ArrayDeUsuarios as $item)
 		$cadena = $_POST['mail'].rand(1,9999999).date('Y-m-d');
    		$token = md5($cadena);
 
-   		$enlace = 'localhost:8080/tp_pizzeria/php/restablecerPassword.php?token='.$token;
+   		$enlace = 'localhost:8080/tp_pizzeria/restablecerPassword.php?token='.$token;
       
       	echo $enlace;
 
-      	Usuario::InsertarReseteo(md5($_POST['mail']),$token);
+      	Reseteo::InsertarReseteo($_POST['mail'],$token);
 
 		mail($_POST['mail'], "Recuperación de mail", $enlace);
 
@@ -27,9 +28,9 @@ foreach ($ArrayDeUsuarios as $item)
 
 if($bandera==1)
 {
-	echo "Debería haber recibido un mail con un link para la recuperación de la clave";
+	echo "<br><br>Debería haber recibido un mail con un link para la recuperación de la clave";
 }else
 {
-	echo "Error";
+	echo "Error. No existe perfil con ese mail";
 }
 ?>
