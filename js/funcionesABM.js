@@ -37,6 +37,7 @@ function TraerParaModificarUsuario(EstaEsLaId)
 			$("#txtNombre").val(unUsuario.nombre);
 			$('#txtMail').val(unUsuario.mail);
 			$('#hiddenId').val(unUsuario.id);
+			$('#hiddenMail').val(unUsuario.mail);
 		});
 }
 
@@ -64,6 +65,7 @@ function ModificarUsuario()
 			data: {
 				queHacer: 'ModificarUsuario',
 				id: $('#hiddenId').val(),
+				hiddenMail: $('#hiddenMail').val(),
 				nombre: $('#txtNombre').val(),
 				mail: $('#txtMail').val(),
 				clave: $('#txtClave').val()
@@ -108,7 +110,15 @@ function BorrarUsuario(EstaEsLaId)
 
 		funcionAjax.done(function(retorno)
 		{
-			$('#principal').html(retorno);
+			if(retorno == "con session")
+			{
+				$('#principal').html("Usuario borrado!!!");
+			}else
+			{
+				$('#principal').html("Usuario borrado!!!");
+				$('#Contador').html("");
+			}
+			
 		});
 }
 

@@ -6,6 +6,7 @@ echo "<form class='form-ingreso' method='post' id='form' name='form' onsubmit='M
 		  Cambiar Mail: <input class='form-control' type='mail' id='txtMail' name='txtMail' required/></br>
 		  Cambiar clave: <input class='form-control' type='password' id='txtClave' name='txtClave'/></br>
 		  <input type='hidden' name='hiddenId' id='hiddenId'/>
+		  <input type='hidden' name='hiddenMail' id='hiddenMail'/>
 		  <button type='submit' class='btn btn-lg btn-primary btn-block' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 		  </form>";
 

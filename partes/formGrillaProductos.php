@@ -37,7 +37,7 @@
 		  	echo "</tr>";
 		}
 		echo "</tbody></table>";
-		echo "<input type='button' onclick='Estadistica()' value='Estadistica'/>";
+		echo "<input class='btn btn-lg btn-danger btn-block' type='button' onclick='Estadistica()' value='Estadistica'/>";
 	}else{
 		echo "Debe logearse primero!";
 	}

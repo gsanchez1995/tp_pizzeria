@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2015 a las 18:25:44
+-- Tiempo de generación: 19-11-2015 a las 21:01:07
 -- Versión del servidor: 5.6.25
 -- Versión de PHP: 5.6.11
 
@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `nombre` varchar(100) NOT NULL,
   `precio` int(11) NOT NULL,
   `foto` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -115,16 +115,7 @@ CREATE TABLE IF NOT EXISTS `reseteopassword` (
   `mail` varchar(50) NOT NULL,
   `token` varchar(200) NOT NULL,
   `creado` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `reseteopassword`
---
-
-INSERT INTO `reseteopassword` (`id`, `mail`, `token`, `creado`) VALUES
-(24, 'user10@user.com.ar', '491c1d00ce801a2ff9de4fd862faafd1', '2015-11-17 17:16:42'),
-(25, 'admin2@admin.com.ar', 'ab46461f29b2982fe9e0f0f493ba28b4', '2015-11-17 17:20:30'),
-(26, 'user3@user.com.ar', 'a641232129e3b498a29b66a4d231d928', '2015-11-17 17:22:19');
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,19 +129,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `mail` varchar(50) NOT NULL,
   `clave` varchar(50) NOT NULL,
   `tipo` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nombre`, `mail`, `clave`, `tipo`) VALUES
-(8, 'user2', 'user2@user.com.ar', 'e00cf25ad42683b3df678c61f42c6bda', 'user'),
-(9, 'user3', 'user3@user.com.ar', '92877af70a45fd6a2ed7fe81e1236b78', 'user'),
-(10, 'admin1', 'admin1@admin.com.ar', 'e00cf25ad42683b3df678c61f42c6bda', 'admin'),
-(11, 'admin2', 'admin2@admin.com.ar', 'c84258e9c39059a89ab77d846ddab909', 'admin'),
-(12, 'user1', 'user1@user.com.ar', '24c9e15e52afc47c225b757e7bee1f9d', 'user'),
-(13, 'user10', 'user10@user.com.ar', 'ddb2ffcbd5bd0c0bc400c5f14c41b166', 'user');
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -168,16 +147,7 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   `tipo` varchar(50) NOT NULL,
   `promocion` varchar(50) NOT NULL,
   `id_vendedor` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`id`, `pedido`, `precio`, `provincia`, `localidad`, `direccion`, `tipo`, `promocion`, `id_vendedor`) VALUES
-(7, '3 de jamon y morrones', 165, 'Buenos Aires', 'Avellaneda', 'Mitre 750', 'Empresa', 'si', 10),
-(8, '2 de jamon y morrones, 2 de producto nuevo', 130, 'Buenos Aires', 'Lanus', 'san martin 500', 'Empresa', 'no', 10),
-(9, '01 de jamon y morrones, 1 de producto nuevo, 2 de prod mod', 291, 'Capital', 'La Boca', 'sarmiento 100', 'Particular', 'si', 10);
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Índices para tablas volcadas
@@ -215,22 +185,22 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `reseteopassword`
 --
 ALTER TABLE `reseteopassword`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 DELIMITER $$
 --
 -- Eventos

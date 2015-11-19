@@ -5,6 +5,8 @@ require_once "./clases/claseReseteo.php";
 
 $ArrayDeUsuarios = Usuario::TraerTodosLosUsuarios();
 
+$bandera = 0;
+
 foreach ($ArrayDeUsuarios as $item) 
 {
 	if($_POST['mail']==$item->mail)
