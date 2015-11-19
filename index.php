@@ -50,6 +50,7 @@
 				<li><a onclick="IrHacia('GrillaProductos')" class="btn">Listado de Productos</a> </li>
 				<li><a onclick="IrHacia('Venta')" class="btn">Registrar venta</a> </li>
 				<li><a onclick="IrHacia('GrillaVentas')" class="btn">Listado de Ventas</a> </li>
+				<li><a onclick="IrHacia('RSS')" class="btn">RSS</a> </li>
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>

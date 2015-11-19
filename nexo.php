@@ -70,6 +70,9 @@ switch ($_POST['queHacer']) {
 	case 'Estadistica':
 		include 'partes/formEstadistica.php';
 		break;
+	case 'RSS':
+		include 'partes/rss.php';
+		break;
 	default:
 		# code...
 		break;

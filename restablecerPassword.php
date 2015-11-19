@@ -12,19 +12,32 @@ require_once "clases/claseReseteo.php";
 
 $ArrayDeReseteos = Reseteo::TraerTodosLosReseteos();
 
+$bandera = 0;
+
 foreach ($ArrayDeReseteos as $item) 
 {
 	if($item->token == $_GET['token'])
 	{
 		$unUsuario =  Usuario::TraerUsuarioPorMail($item->mail);
+		$bandera = 1;
 	}
 }
 
-echo "<center><form class='form-ingreso' method='post' id='form' name='form' onsubmit='ModificarUsuarioPorReseteo();return false;'>
+if($bandera==1)
+{
+	echo "<center><form class='form-ingreso' method='post' id='form' name='form' onsubmit='ModificarUsuarioPorReseteo();return false;'>
 		  <h2 class='form-ingreso-heading'>Cambiar clave: </h2>
 		  <input class='form-control' type='password' id='txtClave' name='txtClave' required/></br>
 		  <input type='hidden' name='hiddenId' id='hiddenId' value='$unUsuario->id'/>
 		  <button class='btn btn-lg btn-primary btn-block' type='submit' id='btnAceptar' name='btnAceptar'>Aceptar</button>
 		  </form></center>";
+}
+else
+{
+	echo "<center><form class='form-ingreso' method='post' id='form' name='form' action='index.php'>
+		  <h2 class='form-ingreso-heading'>Link Invalido</h2>
+		  <button class='btn btn-lg btn-primary btn-block' type='submit' id='btnVolver' name='btnVolver'>Volver</button>
+		  </form></center>";
+}
 
 ?>
